@@ -7,7 +7,7 @@ export const useI18nContext = () => useContext(I18nContext);
 export default function I18nProvider({ children, locale = "en", messages }) {
   const getMessage = useCallback(
     ({ messageKey, defaultMessage }) => {
-      const message = messages?.[messageKey] ?? defaultMessage;
+      const message = messages[locale]?.[messageKey] ?? defaultMessage;
       console.log(message, "message");
       const formats = {
         tenant: "finexity",
@@ -21,7 +21,7 @@ export default function I18nProvider({ children, locale = "en", messages }) {
       });
       return formattedMessage;
     },
-    [messages]
+    [locale, messages]
   );
 
   const getFormattedDate = useCallback(

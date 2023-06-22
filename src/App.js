@@ -5,9 +5,9 @@ import I18nComponentRow from "./data/I18nComponentRow";
 import I18nHOCRow from "./data/I18nHOCRow";
 import I18nHookRow from "./data/I18nHookRow";
 import language from "./translation";
-const locale = "en";
-const MESSAGES = language[locale];
-console.log(language[locale], "con");
+// // const locale = "en";
+// const MESSAGES = language[locale];
+// console.log(language[locale], "con");
 
 const LOCALES = ["en", "fr", "en-IN"];
 
@@ -15,7 +15,7 @@ export default function App() {
   const [locale, setLocale] = useState("en");
 
   return (
-    <I18nProvider locale={locale} defaultLocale="en" messages={MESSAGES}>
+    <I18nProvider locale={locale} defaultLocale="en" messages={language}>
       <div className="locale-buttons-container">
         {LOCALES.map((l) => (
           <button
